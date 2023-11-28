@@ -2,7 +2,7 @@
 
 const misFrutas1 = ["Anana", "Manzana", "Pera", "Banana", "Naranja"];
 
-console.log(misFrutas1[2]);
+// console.log(misFrutas1[2]);
 
 //Ejercicio 2
 
@@ -40,4 +40,25 @@ const cantidadDeFrutas = () => {
     misFrutas2.forEach((el)=> {
         console.log(el);
         })
+}
+
+const revertirPalabra = (palabra) => {
+    palabraDividida = palabra.split("")
+    let resultado = ""
+for(let i = palabraDividida.length-1 ;i >= 0;i--) {
+    resultado += palabraDividida[i]
+}
+console.log(resultado);
+}
+
+
+
+
+const revertirPalabra2 = (palabra) => {
+    let palabraDividida = palabra.split(" ")
+    let resultado = ""
+    for(let i = palabraDividida.length-1; i >= 0;i--) {
+        resultado += palabraDividida[i] + " "
+    }
+    console.log(resultado);
 }
