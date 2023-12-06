@@ -1,3 +1,5 @@
+//Ejercicio 6 Juego de preguntas avanzado
+
 // Ejercicio 5 Cambiador de título
 
 const $titulo = document.getElementById("mititulo");
@@ -6,8 +8,8 @@ const $btnTitulo = document.getElementById("miboton");
 $btnTitulo.addEventListener("click", (e) => {
   $titulo.innerHTML = "Titulo cambiado desde Javascript";
 });
-// Ejercicio 6 Juego de preguntas
 
+// Ejercicio 6 Juego de preguntas
 const $empezarJuego = document.getElementById("btnPreguntas");
 $empezarJuego.addEventListener("click", (e) => {
   let puntaje = 0;
@@ -40,6 +42,7 @@ $empezarJuego.addEventListener("click", (e) => {
       let respuesta = prompt(preguntas[i][i]);
       if (respuesta == respuestas[i]) {
         puntaje += 10;
+        alert(`Muy bien ! tu puntación subio a ${puntaje} puntos`);
       } else {
         alert(
           `Te equivocaste, la respuesta correcta era la opción ${respuestas[i]}`
