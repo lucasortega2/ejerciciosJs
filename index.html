@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a3d98e8d58.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -12,9 +15,26 @@
     <button id="miboton">Cambiar Texto</button>
     <h1>Juego de preguntas y respuestas </h1>
     <button id="btnPreguntas">Empezar</button>
-    <script src="ejercicios.js"></script>
-    <br>
-    <a href="/Juego_preguntas.html">Juego de preguntas avanzado</a>
+    <br><br><br><br>
+
+    <div class="juego-preguntas-menu ">
+        <h2>Question <br> Game</h2>
+        <button class="btn-juego-preguntas btn-menu-start">Start</button> <br>
+        <button class="btn-juego-preguntas btn-menu-exit">Exit</button>
+    </div>
+    <div class="preguntas-menu hidden">
+        <div class="naranja"></div>
+        <div class="numpregunta">1</div>
+        <div class="preguntas-menu-1">
+
+            <p class="pregunta"></p>
+            <button class="opcion"><i class="fa-solid fa-1"></i></button>
+            <button class="opcion"><i class="fa-solid fa-2"></i></button>
+            <button class="opcion"><i class="fa-solid fa-3"></i></button>
+            <button class="btn-juego-continue">Continue</button>
+        </div>
+    </div>
 </body>
+<script src="index.js" type="module"></script>
 
 </html>

@@ -1,30 +1,131 @@
-body {
-  height: 100%;
-}
-#juego-preguntas {
+.juego-preguntas-menu {
   margin: auto;
   width: 100%;
-  height: 100%;
+  max-width: 580px;
+  min-width: 300px;
+  height: 400px;
   background-image: url("https://imagenes.muyinteresante.es/files/composte_image/uploads/2023/08/01/64c927ca910e0.jpeg");
+  background-size: 500px;
   background-repeat: no-repeat;
+  background-position: 50% 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-#juego-preguntas h2 {
+.juego-preguntas-menu h2 {
   color: white;
   text-align: center;
   font-size: 200%;
 }
-.menu-juego-preguntas {
+.btn-juego-preguntas {
   background-color: orange;
   color: white;
-  font-size: 200%;
+  font-size: 20px;
   padding: 10px 15px;
   border-radius: 25%;
-  width: 40%;
+  width: 150px;
   text-align: center;
   border: 0;
   align-content: center;
+}
+
+.preguntas-menu {
+  margin: auto;
+  width: 100%;
+  height: 400px;
+  background-image: url("https://imagenes.muyinteresante.es/files/composte_image/uploads/2023/08/01/64c927ca910e0.jpeg");
+  background-size: 580px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+}
+.preguntas-menu-1 {
+  margin-top: 85px;
+  height: 275px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.opcion {
+  padding: 0;
+  text-align: start;
+  align-content: start;
+  width: 300px;
+  margin: 0px;
+  border-radius: 20%;
+  border: none;
+}
+.fa-solid:first-child {
+  text-align: center;
+  width: 25px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
+  color: white;
+}
+.fa-solid.fa-1 {
+  background-color: red;
+}
+.fa-solid.fa-2 {
+  background-color: green;
+}
+.fa-solid.fa-3 {
+  background-color: blue;
+}
+.fa-solid:fi .naranja {
+  position: absolute;
+  top: 0;
+  width: 580px;
+  height: 100px;
+  background-color: orange;
+}
+
+.numpregunta {
+  border-radius: 50%;
+  position: absolute;
+  top: 80px;
+  color: blue;
+  font-size: 35px;
+  background-color: white;
+  width: 40px;
+  text-align: center;
+}
+.pregunta {
+  background-color: white;
+  color: blue;
+  font-size: 17px;
+  min-width: 300px;
+  width: 65%;
+  border-radius: 25%;
+  padding: 5px;
+}
+.naranja {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  max-width: 580px;
+  min-width: 300px;
+  height: 100px;
+  background-color: orange;
+}
+.btn-juego-continue {
+  background-color: orange;
+  color: white;
+  font-size: 15px;
+  padding: 5px 0;
+  border-radius: 25%;
+  width: 125px;
+  text-align: center;
+  border: 0;
+  align-content: center;
+}
+.hidden {
+  display: none;
 }

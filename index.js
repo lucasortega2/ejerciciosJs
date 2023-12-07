@@ -1,4 +1,18 @@
+import { juegoPreguntasAvanzado } from "./js/juego_preguntas_avanzado.js";
+
 //Ejercicio 6 Juego de preguntas avanzado
+
+document.addEventListener("DOMContentLoaded", () => {
+  juegoPreguntasAvanzado(
+    ".btn-menu-start",
+    ".btn-menu-exit",
+    ".pregunta",
+    ".juego-preguntas-menu",
+    ".preguntas-menu",
+    ".opcion",
+    ".btn-juego-continue"
+  );
+});
 
 // Ejercicio 5 Cambiador de título
 
