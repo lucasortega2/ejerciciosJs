@@ -5,7 +5,10 @@ export function juegoPreguntasAvanzado(
   menuPrincipal,
   menuPreguntas,
   opcion,
-  btnContinue
+  btnContinue,
+  marcador,
+  menuPreguntasReset,
+  btnExitPreguntas
 ) {
   const $btnStart = document.querySelector(btnStart);
   const $btnExit = document.querySelector(btnExit);
@@ -14,6 +17,10 @@ export function juegoPreguntasAvanzado(
   const $menuPreguntas = document.querySelector(menuPreguntas);
   const $btnContinue = document.querySelector(btnContinue);
   const $opciones = document.querySelectorAll(opcion);
+  const $marcador = document.querySelector(marcador);
+  const $menuPreguntasReset = document.querySelector(menuPreguntasReset);
+  const $btnMenuExitPreguntas = document.querySelector(btnExitPreguntas);
+  let puntajes = 0;
   let preguntasAvanzadas = [
     "¿ Quién fue el autor del último libro de la Biblia?",
     "¿Cuantos libros tiene la Biblia?",
@@ -29,14 +36,15 @@ export function juegoPreguntasAvanzado(
     [7, 8, 9],
   ];
   let respuestasAvanzadas = ["Juan", 66, "Paris", 180, 8];
-  let controladorRespuestasAvanzadas = 0;
-  let puntaje = 0;
   let controladorPreguntas = 0;
   let controlador = 0;
   let controladorRespuestas = 0;
-
+  let contadorPregunta = 0;
+  let clickeado = false;
+  let opciones = ["a", "b", "c"];
   const mostrarPregunta = () => {
     if (controladorPreguntas < preguntasAvanzadas.length) {
+      $menuPreguntasReset.classList.remove("hidden");
       $preguntas.innerHTML = preguntasAvanzadas[controladorPreguntas];
       $opciones.forEach((el) => {
         el.innerHTML += todasLasRespuestas[controladorRespuestas][controlador];
@@ -46,44 +54,65 @@ export function juegoPreguntasAvanzado(
       controladorRespuestas++;
       controladorPreguntas++;
     } else {
+      $btnMenuExitPreguntas.classList.remove("hidden");
       $preguntas.innerHTML = "";
-      let $butonExit = document.createElement("button");
-      $butonExit.classList.add("btn-juego-continue", "btn-menu-exit");
-      $butonExit.textContent = "Exit";
-      document.querySelector(".preguntas-menu-1").innerHTML = "";
-      document.querySelector(".preguntas-menu-1").appendChild($butonExit);
+      $menuPreguntasReset.classList.add("hidden");
     }
+  };
+  const respuestaCorrecta = (e) => {
+    let $opcionCorrecta;
+    $opciones.forEach((el) => {
+      let $i = document.createElement("i");
+      if (el.textContent == respuestasAvanzadas[contadorPregunta]) {
+        $i.classList.add("fa-solid", "fa-check");
+        el.appendChild($i);
+        $opcionCorrecta = el.querySelector(" .fa-solid");
+        console.log($opcionCorrecta);
+        $opcionCorrecta.style.backgroundColor = "green";
+      } else {
+        $i.classList.add("fa-solid", "fa-xmark");
+        el.appendChild($i);
+      }
+    });
+  };
+  const reiniciarJuego = () => {
+    controladorPreguntas = 0;
+    controlador = 0;
+    controladorRespuestas = 0;
+    puntajes = 0;
+    contadorPregunta = 0;
   };
   document.addEventListener("click", (e) => {
     if (e.target.matches(btnStart)) {
+      $btnMenuExitPreguntas.classList.add("hidden");
       $menuPrincipal.classList.add("hidden");
       $menuPreguntas.classList.remove("hidden");
       mostrarPregunta();
     }
     if (e.target.matches(btnContinue)) {
-      let i = 1;
-      $opciones.forEach((el) => {
-        el.innerHTML = `<i class="fa-solid fa-${i}"></i>`;
-        i++;
+      clickeado = false;
+      contadorPregunta++;
+      $opciones.forEach((el, i) => {
+        el.innerHTML = `<i class="fa-solid fa-${opciones[i]}"></i>`;
       });
-
       mostrarPregunta();
     }
-    if (
-      e.target.matches(opcion) &&
-      e.target.textContent ==
-        respuestasAvanzadas[controladorRespuestasAvanzadas]
-    ) {
-      puntaje += 10;
-      controladorRespuestasAvanzadas++;
-      alert(`Muy bien sumaste 10 puntos! En total tenes${puntaje} puntos!`);
+    if (e.target.matches(opcion) && !clickeado) {
+      clickeado = true;
+      if (e.target.textContent == respuestasAvanzadas[contadorPregunta]) {
+        puntajes = puntajes + 10;
+        $marcador.innerHTML = puntajes;
+        respuestaCorrecta(e);
+      } else {
+        let opcionIncorrecta = e.target.querySelector(".fa-solid", ".fa-check");
+        opcionIncorrecta.style.backgroundColor = "red";
+        respuestaCorrecta(e);
+      }
     }
-    if (e.target.matches(opcion)) {
-      console.log(e.target.textContent);
-      console.log(respuestasAvanzadas[controladorRespuestasAvanzadas]);
-    }
-    if (e.target.matches(btnExit)) {
-      console.log("exit");
+    if (e.target.matches(btnExitPreguntas)) {
+      reiniciarJuego();
+      $menuPrincipal.classList.remove("hidden");
+      $menuPreguntas.classList.add("hidden");
     }
   });
 }

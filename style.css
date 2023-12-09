@@ -60,6 +60,7 @@
   margin: 0px;
   border-radius: 20%;
   border: none;
+  position: relative;
 }
 .fa-solid:first-child {
   text-align: center;
@@ -70,16 +71,18 @@
   font-size: 25px;
   color: white;
 }
-.fa-solid.fa-1 {
-  background-color: red;
-}
-.fa-solid.fa-2 {
-  background-color: green;
-}
-.fa-solid.fa-3 {
+.fa-solid.fa-a {
   background-color: blue;
 }
-.fa-solid:fi .naranja {
+.fa-solid.fa-a {
+}
+.fa-solid.fa-b {
+  background-color: blue;
+}
+.fa-solid.fa-c {
+  background-color: blue;
+}
+.naranja {
   position: absolute;
   top: 0;
   width: 580px;
@@ -87,7 +90,7 @@
   background-color: orange;
 }
 
-.numpregunta {
+.marcador {
   border-radius: 50%;
   position: absolute;
   top: 80px;
@@ -128,4 +131,20 @@
 }
 .hidden {
   display: none;
+}
+.fa-check {
+  color: green !important;
+  border: 2px solid green;
+  border-radius: 50%;
+  padding: 3px !important;
+  position: absolute;
+  right: 20px;
+}
+.fa-xmark {
+  color: red;
+  border: 2px solid red;
+  border-radius: 50%;
+  padding: 3px !important;
+  position: absolute;
+  right: 20px;
 }

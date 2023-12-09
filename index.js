@@ -10,13 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
     ".juego-preguntas-menu",
     ".preguntas-menu",
     ".opcion",
-    ".btn-juego-continue"
+    ".btn-juego-continue",
+    ".marcador",
+    ".preguntas-menu-1",
+    ".btn-preguntas-exit"
   );
 });
 
 // Ejercicio 5 Cambiador de título
 
-const $titulo = document.getElementById("mititulo");
+/* const $titulo = document.getElementById("mititulo");
 const $btnTitulo = document.getElementById("miboton");
 
 $btnTitulo.addEventListener("click", (e) => {
@@ -24,7 +27,7 @@ $btnTitulo.addEventListener("click", (e) => {
 });
 
 // Ejercicio 6 Juego de preguntas
-const $empezarJuego = document.getElementById("btnPreguntas");
+/* const $empezarJuego = document.getElementById("btnPreguntas");
 $empezarJuego.addEventListener("click", (e) => {
   let puntaje = 0;
   let controlador = 0;
@@ -136,3 +139,4 @@ const revertirPalabra2 = (palabra) => {
   resultado = resultado.join(" ");
   console.log(resultado);
 };
+ */
