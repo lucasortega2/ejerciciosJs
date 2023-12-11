@@ -81,6 +81,7 @@ export function juegoPreguntasAvanzado(
     controladorRespuestas = 0;
     puntajes = 0;
     contadorPregunta = 0;
+    $marcador.innerHTML = puntajes;
   };
   document.addEventListener("click", (e) => {
     if (e.target.matches(btnStart)) {
@@ -100,7 +101,7 @@ export function juegoPreguntasAvanzado(
     if (e.target.matches(opcion) && !clickeado) {
       clickeado = true;
       if (e.target.textContent == respuestasAvanzadas[contadorPregunta]) {
-        puntajes = puntajes + 10;
+        puntajes += 10;
         $marcador.innerHTML = puntajes;
         respuestaCorrecta(e);
       } else {
