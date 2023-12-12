@@ -1,11 +1,11 @@
 .juego-preguntas-menu {
   margin: auto;
   width: 100%;
-  max-width: 580px;
-  min-width: 300px;
+  min-width: 375px;
   height: 400px;
+  min-height: 360px;
   background-image: url("https://imagenes.muyinteresante.es/files/composte_image/uploads/2023/08/01/64c927ca910e0.jpeg");
-  background-size: 500px;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   display: flex;
@@ -33,39 +33,52 @@
 .preguntas-menu {
   margin: auto;
   width: 100%;
+  min-width: 375px;
   height: 400px;
+  min-height: 360px;
   background-image: url("https://imagenes.muyinteresante.es/files/composte_image/uploads/2023/08/01/64c927ca910e0.jpeg");
-  background-size: 580px;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  position: relative;
+  position: absolute;
 }
 .preguntas-menu-1 {
-  margin-top: 85px;
-  height: 275px;
+  margin-top: 30px;
+  width: 65%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .opcion {
+  width: 80%;
+  max-width: 500px;
+  min-width: 250px;
   padding: 0;
   text-align: start;
   align-content: start;
-  width: 300px;
   margin: 0px;
   border-radius: 20%;
   border: none;
   position: relative;
+  display: flex;
+}
+.opcion p {
+  color: blue;
+  font-weight: bolder;
+  margin: auto;
+  margin-left: 10px;
+  align-items: center;
+  width: 100%;
 }
 .fa-solid:first-child {
   text-align: center;
   width: 25px;
-  height: 20px;
+  height: 100%;
   margin: 0;
   padding: 0;
   font-size: 25px;
@@ -82,18 +95,11 @@
 .fa-solid.fa-c {
   background-color: blue;
 }
-.naranja {
-  position: absolute;
-  top: 0;
-  width: 580px;
-  height: 100px;
-  background-color: orange;
-}
 
 .marcador {
   border-radius: 50%;
   position: absolute;
-  top: 80px;
+  top: 65px;
   color: blue;
   font-size: 35px;
   background-color: white;
@@ -101,21 +107,25 @@
   text-align: center;
 }
 .pregunta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   background-color: white;
   color: blue;
   font-size: 17px;
-  min-width: 300px;
   width: 65%;
+  height: 17%;
   border-radius: 25%;
   padding: 5px;
+  margin: 0;
 }
 .naranja {
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
-  max-width: 580px;
   min-width: 300px;
-  height: 100px;
+  height: 22%;
   background-color: orange;
 }
 .btn-juego-continue {
@@ -133,18 +143,82 @@
   display: none;
 }
 .fa-check {
+  align-items: center;
   color: green !important;
   border: 2px solid green;
   border-radius: 50%;
   padding: 3px !important;
   position: absolute;
   right: 20px;
+  top: 0;
+  height: 50% !important;
+  font-size: 15px !important;
 }
 .fa-xmark {
+  font-size: 15px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
   color: red;
   border: 2px solid red;
   border-radius: 50%;
   padding: 3px !important;
   position: absolute;
   right: 20px;
+  width: 20px;
+  text-align: center;
+  height: 50%;
+  align-self: center;
+}
+.btn-preguntas-exit {
+  margin: auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .juego-preguntas-menu {
+    height: 1000px;
+  }
+  .juego-preguntas-menu h2 {
+    font-size: 80px;
+  }
+  .btn-menu-start {
+    font-size: 40px;
+    width: 200px;
+    height: 70px;
+  }
+  .btn-menu-exit {
+    font-size: 40px;
+    width: 200px;
+    height: 70px;
+  }
+  .preguntas-menu {
+    height: 1000px;
+  }
+  .naranja {
+    height: 20%;
+  }
+  .marcador {
+    top: 160px;
+    font-size: 60px;
+    width: 70px;
+  }
+  .preguntas-menu-1 {
+    justify-content: space-around;
+    height: 65%;
+  }
+  .pregunta {
+    font-size: 30px;
+  }
+  .opcion {
+    height: 30px;
+  }
+
+  .opcion p {
+    font-size: 25px;
+  }
+  .btn-juego-continue {
+    width: 30%;
+    height: 40px;
+    font-size: 25px;
+  }
 }

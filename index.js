@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Ejercicio 5 Cambiador de título
 
-const $titulo = document.getElementById("mititulo");
+/* const $titulo = document.getElementById("mititulo");
 const $btnTitulo = document.getElementById("miboton");
 
 $btnTitulo.addEventListener("click", (e) => {
@@ -139,3 +139,4 @@ const revertirPalabra2 = (palabra) => {
   resultado = resultado.join(" ");
   console.log(resultado);
 };
+ */

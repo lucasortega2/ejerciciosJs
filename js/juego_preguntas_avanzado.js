@@ -16,6 +16,7 @@ export function juegoPreguntasAvanzado(
   const $menuPrincipal = document.querySelector(menuPrincipal);
   const $menuPreguntas = document.querySelector(menuPreguntas);
   const $btnContinue = document.querySelector(btnContinue);
+  const $opcion = opcion;
   const $opciones = document.querySelectorAll(opcion);
   const $marcador = document.querySelector(marcador);
   const $menuPreguntasReset = document.querySelector(menuPreguntasReset);
@@ -46,8 +47,9 @@ export function juegoPreguntasAvanzado(
     if (controladorPreguntas < preguntasAvanzadas.length) {
       $menuPreguntasReset.classList.remove("hidden");
       $preguntas.innerHTML = preguntasAvanzadas[controladorPreguntas];
+
       $opciones.forEach((el) => {
-        el.innerHTML += todasLasRespuestas[controladorRespuestas][controlador];
+        el.innerHTML += `<p>${todasLasRespuestas[controladorRespuestas][controlador]}</p>`;
         controlador++;
       });
       controlador = 0;
@@ -59,22 +61,7 @@ export function juegoPreguntasAvanzado(
       $menuPreguntasReset.classList.add("hidden");
     }
   };
-  const respuestaCorrecta = (e) => {
-    let $opcionCorrecta;
-    $opciones.forEach((el) => {
-      let $i = document.createElement("i");
-      if (el.textContent == respuestasAvanzadas[contadorPregunta]) {
-        $i.classList.add("fa-solid", "fa-check");
-        el.appendChild($i);
-        $opcionCorrecta = el.querySelector(" .fa-solid");
-        console.log($opcionCorrecta);
-        $opcionCorrecta.style.backgroundColor = "green";
-      } else {
-        $i.classList.add("fa-solid", "fa-xmark");
-        el.appendChild($i);
-      }
-    });
-  };
+
   const reiniciarJuego = () => {
     controladorPreguntas = 0;
     controlador = 0;
@@ -98,22 +85,55 @@ export function juegoPreguntasAvanzado(
       });
       mostrarPregunta();
     }
-    if (e.target.matches(opcion) && !clickeado) {
-      clickeado = true;
-      if (e.target.textContent == respuestasAvanzadas[contadorPregunta]) {
-        puntajes += 10;
-        $marcador.innerHTML = puntajes;
-        respuestaCorrecta(e);
-      } else {
-        let opcionIncorrecta = e.target.querySelector(".fa-solid", ".fa-check");
-        opcionIncorrecta.style.backgroundColor = "red";
-        respuestaCorrecta(e);
-      }
-    }
+
     if (e.target.matches(btnExitPreguntas)) {
       reiniciarJuego();
       $menuPrincipal.classList.remove("hidden");
       $menuPreguntas.classList.add("hidden");
     }
+  });
+
+  $opciones.forEach((Element, index) => {
+    let $i;
+    if (Element.textContent == respuestasAvanzadas[contadorPregunta]) {
+      console.log("hola");
+    }
+    $i = document.createElement("i");
+    let $check = document.createElement("i");
+    const respuestaCorrecta = (e) => {
+      $i.classList.remove("fa-xmark");
+      let $opcionCorrecta;
+      $i.classList.add("fa-solid", "fa-check");
+
+      e.target.append($i);
+      $opcionCorrecta = document.querySelectorAll(" .fa-solid");
+      $opcionCorrecta[index].style.backgroundColor = "green";
+    };
+    const respuestaIncorrecta = (e) => {
+      $i.classList.remove("fa-check");
+      $i.classList.add("fa-solid", "fa-xmark");
+      e.target.before($i);
+      let RespuestaEquivocada = document.querySelectorAll(".fa-solid");
+      RespuestaEquivocada[index].style.backgroundColor = "red";
+      for (let i of $opciones) {
+        if (i.textContent == respuestasAvanzadas[contadorPregunta]) {
+          $check.classList.add("fa-solid", "fa-check");
+          i.querySelector(`.fa-solid`, `.fa${i}`).append($check);
+          i.querySelector(".fa-solid").style.backgroundColor = "green";
+        }
+      }
+    };
+    Element.addEventListener("click", (e) => {
+      if (!clickeado) {
+        clickeado = true;
+        if (e.target.textContent == respuestasAvanzadas[contadorPregunta]) {
+          respuestaCorrecta(e);
+          puntajes += 10;
+          $marcador.innerHTML = puntajes;
+        } else {
+          respuestaIncorrecta(e);
+        }
+      }
+    });
   });
 }
