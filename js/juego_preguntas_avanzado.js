@@ -104,21 +104,20 @@ export function juegoPreguntasAvanzado(
       $i.classList.remove("fa-xmark");
       let $opcionCorrecta;
       $i.classList.add("fa-solid", "fa-check");
-
-      e.target.append($i);
+      e.target.closest(".opcion").appendChild($i);
       $opcionCorrecta = document.querySelectorAll(" .fa-solid");
       $opcionCorrecta[index].style.backgroundColor = "green";
     };
     const respuestaIncorrecta = (e) => {
       $i.classList.remove("fa-check");
       $i.classList.add("fa-solid", "fa-xmark");
-      e.target.before($i);
+      e.target.closest(".opcion").appendChild($i);
       let RespuestaEquivocada = document.querySelectorAll(".fa-solid");
       RespuestaEquivocada[index].style.backgroundColor = "red";
       for (let i of $opciones) {
         if (i.textContent == respuestasAvanzadas[contadorPregunta]) {
           $check.classList.add("fa-solid", "fa-check");
-          i.querySelector(`.fa-solid`, `.fa${i}`).append($check);
+          i.querySelector("p").after($check);
           i.querySelector(".fa-solid").style.backgroundColor = "green";
         }
       }
@@ -126,7 +125,10 @@ export function juegoPreguntasAvanzado(
     Element.addEventListener("click", (e) => {
       if (!clickeado) {
         clickeado = true;
-        if (e.target.textContent == respuestasAvanzadas[contadorPregunta]) {
+        if (
+          e.target.closest(".opcion").textContent ==
+          respuestasAvanzadas[contadorPregunta]
+        ) {
           respuestaCorrecta(e);
           puntajes += 10;
           $marcador.innerHTML = puntajes;

@@ -1,3 +1,6 @@
+body {
+  margin: 0;
+}
 .juego-preguntas-menu {
   margin: auto;
   width: 100%;
@@ -56,16 +59,16 @@
 }
 .opcion {
   width: 80%;
+  height: max-content;
   max-width: 500px;
   min-width: 250px;
   padding: 0;
-  text-align: start;
-  align-content: start;
   margin: 0px;
-  border-radius: 20%;
+  border-radius: 10%;
   border: none;
-  position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .opcion p {
   color: blue;
@@ -77,12 +80,15 @@
 }
 .fa-solid:first-child {
   text-align: center;
-  width: 25px;
   height: 100%;
+  width: 25px;
   margin: 0;
   padding: 0;
   font-size: 25px;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .fa-solid.fa-a {
   background-color: blue;
@@ -114,8 +120,9 @@
   background-color: white;
   color: blue;
   font-size: 17px;
+  min-width: 183px;
   width: 65%;
-  height: 17%;
+  height: 15%;
   border-radius: 25%;
   padding: 5px;
   margin: 0;
@@ -142,33 +149,22 @@
 .hidden {
   display: none;
 }
-.fa-check {
+.fa-check,
+.fa-xmark {
+  border: 2px solid;
   align-items: center;
-  color: green !important;
-  border: 2px solid green;
   border-radius: 50%;
-  padding: 3px !important;
-  position: absolute;
   right: 20px;
-  top: 0;
-  height: 50% !important;
-  font-size: 15px !important;
+  top: 5px;
+  width: 10px;
+  padding: 3px;
+}
+
+.fa-check {
+  color: green !important;
 }
 .fa-xmark {
-  font-size: 15px;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  color: red;
-  border: 2px solid red;
-  border-radius: 50%;
-  padding: 3px !important;
-  position: absolute;
-  right: 20px;
-  width: 20px;
-  text-align: center;
-  height: 50%;
-  align-self: center;
+  color: red !important;
 }
 .btn-preguntas-exit {
   margin: auto;
@@ -210,15 +206,20 @@
     font-size: 30px;
   }
   .opcion {
-    height: 30px;
+    height: 40px;
   }
 
   .opcion p {
     font-size: 25px;
   }
   .btn-juego-continue {
-    width: 30%;
+    width: 300px;
     height: 40px;
     font-size: 25px;
+  }
+  .fa-check,
+  .fa-xmark {
+    width: 15px;
+    height: 15px;
   }
 }
